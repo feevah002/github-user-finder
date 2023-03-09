@@ -29,7 +29,10 @@ async function findUser(e){
         ui.showProfile(userInfo)
         // get repos 
         req.getRepos(`https://api.github.com/users/${searchBoxValue}/repos`)
-        .then(userRepos=> ui.showRepo(userRepos))
+        .then(userRepos=> {
+          ui.warningMsg('', 'none')
+          ui.showRepo(userRepos)
+        })
       } else {
         ui.warningMsg('Result Not Found', 'block')
       }
