@@ -1,1 +1,1 @@
-# githud-user-finder
+# github-user-finder
