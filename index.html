@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <title>GitHub Finder</title>
+  <style>   
+    #warning{
+      display: none;
+    }
+    #view-profile{
+      text-decoration: none;
+    }
+    #repo-name{
+      text-decoration: none;
+    }
+    #repo-name:hover{
+      text-decoration: underline;
+    }
+    #result{
+      display : none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+      <a class="navbar-brand text-light" href="#">GitHub Finder</a>
+    </div>
+  </nav>
+  <div class="container mt-3 mb-4 body">
+    <div id="warning" class="text-bg-danger px-4 p-2 mb-3 rounded-2">
+    </div>
+    <!-- search container -->
+    <div class=" mb-4 card card-body">
+      <h1 class="fw-bold">Search GitHub Users</h1>
+        <label for="search" class="form-label text-secondary">Enter a username to fetch a users profile info and repos</label>
+
+        <input type="text" class="form-control" id="search" placeholder="Github Username...">
+    </div>
+    <!-- end of search container -->
+
+    <!-- profile holder -->
+    <div id="result" class="pb-4">
+      <div class="card card-body">
+        <!-- row -->
+        <div class="row">
+          <!-- first column -->
+          <div class="col-md-3">
+            <!-- user's thumbnail -->
+            <img src='' class='img-fluid' id='avatar'>
+            <!-- view profile button -->
+              <a id="view-profile" class=' w-100 mt-2 mb-2 btn btn-primary  rounded-4 text-light' href="#">View Profile</a>     
+          </div>
+         <!-- second column --> 
+          <div class="col-sm-9">
+             <!-- extras -->
+            <span class="badge rounded text-bg-primary p-2">Public Repos: <span  id = 'public-repos'></span></span>
+            <span class=" p-2 badge rounded text-bg-secondary ">Public Gists: <span id = 'public-gists'></span></span>
+            <span class=" p-2 badge rounded text-bg-success">Followers: <span id='followers'></span></span>
+            <span class=" p-2 badge rounded text-bg-info mt-2">Following: <span id='following'></span></span>
+            <!-- end of extras -->
+  
+            <!-- list group -->
+            <div class="list-group mt-3">
+              <div class="list-group-item" >Company: <span id="company"></span></div>
+              <div class="list-group-item">Website/blog: <span id="website"></span></div>
+              <div class="list-group-item" >Location: <span id="location"></span></div>
+              <div class="list-group-item list-group-item-action " >Member since: <span id="member-since"></span></div>
+            </div>
+            <!-- end of list group -->
+          </div>
+          <!-- end of result div -->
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- profile holder end -->
+      <br>
+      <div id="lastest-repos">
+        <h2>Latest Repos</h2>  
+      </div>
+      <!-- repos -->
+      <div id="repos">
+        <!-- repo -->
+  
+      </div>
+    </div>
+  
+
+  </div>
+  <!-- end of container -->
+
+  <footer class="fixed-bottom p-2 text-bg-light ">
+    <div class="container text-center">
+      GitHub Finder &copy;
+    </div>
+  </footer>
+  <script src="ui.js"></script>
+  <script src="github.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
