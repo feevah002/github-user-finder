@@ -14,31 +14,35 @@ async function findUser(e){
    // clear warning message
    ui.warningMsg('', 'none')
   const searchBoxValue = e.target.value
-  if(searchBoxValue === ''){
-    ui.clear()
-  } else{
-    req.get(`https://api.github.com/users/${searchBoxValue}`)
-    .then(userInfo => {
-      
-      if(userInfo.login !== undefined){
-        // show result
-        result.style.display = 'block'
-        // clear previous searched repo 
-        repoHolder.innerHTML=''
-        // show profile
-        ui.showProfile(userInfo)
-        // get repos 
-        req.getRepos(`https://api.github.com/users/${searchBoxValue}/repos`)
-        .then(userRepos=> {
-          ui.warningMsg('', 'none')
-          ui.showRepo(userRepos)
-        })
+  setTimeout(() => {
+      if (searchBoxValue === "") {
+        ui.clear();
       } else {
-        ui.warningMsg('Result Not Found', 'block')
+        req
+          .get(`https://api.github.com/users/${searchBoxValue}`)
+          .then((userInfo) => {
+            if (userInfo.login !== undefined) {
+              // show result
+              result.style.display = "block";
+              // clear previous searched repo
+              repoHolder.innerHTML = "";
+              // show profile
+              ui.showProfile(userInfo);
+              // get repos
+              req
+                .getRepos(
+                  `https://api.github.com/users/${searchBoxValue}/repos`
+                )
+                .then((userRepos) => {
+                  ui.warningMsg("", "none");
+                  ui.showRepo(userRepos);
+                });
+            } else {
+              ui.warningMsg("Result Not Found", "block");
+            }
+          });
       }
-    })
- 
-  }
+  }, 1000);
 }
 
 
